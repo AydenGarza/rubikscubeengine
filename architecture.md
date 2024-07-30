@@ -1,6 +1,11 @@
 # Rubik's Cube Engine Project Architecture
 
 ``` mermaid
-flowchart
-    A --> B
+classDiagram
+    class engine{
+        <<interface>>
+        +test
+
+        + alrightCoolItWorks()
+    }
 ```

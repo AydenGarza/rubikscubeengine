@@ -12,7 +12,7 @@ classDiagram
         +runApp() void
     }
 
-    class Engine{
+    class CubeEngine{
         -CubeScrambler : scambler
         -CubeSolver : solver
         -Cube : cube
@@ -23,15 +23,39 @@ classDiagram
         +generateScramble() string
     }
 
-    class Solver{
+    class CubeSolver{
         -Cube : cube
 
+        -SolveCube(Cube cube) Cube
         -SolveCross(Cube cube, string crossColor) Cube
         -SolveF2L(Cube cube) Cube
         -SolveOLL(Cube cube) Cube
         -SolvePLL(Cube cube) Cube
-        -FindCrossPieces(Cube cube) map<string color, vector<vector<int>> positions>
+        -FindCrossPieces(Cube cube) : map(string color, vector(vector(int)) positions)
+        -EvaluateCrosses(map(string color, vector(vector(int)) positions) crosspieces) string
+    }
+    
+    class CubeScrambler{
+
     }
 
-    
+    class Cube{
+
+    }
+
+    class AlgorithmsOLL{
+        <<enum>>
+    }
+
+    class AlgorithmsPLL{
+        <<enum>>
+    }
+
+    class AppGUI{
+        
+    }
+
+    Driver *-- CubeEngine
+    CubeEngine *-- CubeSolver
+    CubeEngine *-- CubeScrambler
 ```
